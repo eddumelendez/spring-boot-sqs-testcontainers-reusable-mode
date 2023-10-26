@@ -1,7 +1,6 @@
 package com.example.producer;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.devtools.restart.RestartScope;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -20,7 +19,6 @@ public class ProducerApplicationTests {
 	static class ContainerConfiguration {
 
 		@Bean
-		@RestartScope
 		LocalStackContainer localstackContainer(DynamicPropertyRegistry registry) {
 			LocalStackContainer localStackContainer = new LocalStackContainer(DockerImageName.parse("localstack/localstack:2.3.2"))
 					.withReuse(true);
