@@ -22,7 +22,7 @@ public class ConsumerApplicationTests {
         @Bean
         @RestartScope
         LocalStackContainer localstackContainer(DynamicPropertyRegistry registry) {
-            LocalStackContainer localStackContainer = new LocalStackContainer(DockerImageName.parse("localstack/localstack:2.1.0"))
+            LocalStackContainer localStackContainer = new LocalStackContainer(DockerImageName.parse("localstack/localstack:2.3.2"))
                     .withReuse(true);
             registry.add("spring.cloud.aws.credentials.access-key", localStackContainer::getAccessKey);
             registry.add("spring.cloud.aws.credentials.secret-key", localStackContainer::getSecretKey);
