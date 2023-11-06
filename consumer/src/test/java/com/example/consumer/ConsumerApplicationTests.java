@@ -25,7 +25,7 @@ public class ConsumerApplicationTests {
             registry.add("spring.cloud.aws.credentials.access-key", localStackContainer::getAccessKey);
             registry.add("spring.cloud.aws.credentials.secret-key", localStackContainer::getSecretKey);
             registry.add("spring.cloud.aws.region.static", localStackContainer::getRegion);
-            registry.add("spring.cloud.aws.endpoint", () -> localStackContainer.getEndpointOverride(LocalStackContainer.Service.SQS));
+            registry.add("spring.cloud.aws.endpoint", localStackContainer::getEndpoint);
             return localStackContainer;
         }
 
